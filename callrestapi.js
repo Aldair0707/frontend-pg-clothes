@@ -1,5 +1,5 @@
-var url = "http://localhost:8080/api/clothes";
-//var url = "https://pg-restapi-ibdj.onrender.com/api/clothes";  
+//var url = "http://localhost:8080/api/clothes";
+var url = "https://pg-api-clothes.onrender.com/api/clothes";  
 
 function postClothing() {
     var clothing = {
