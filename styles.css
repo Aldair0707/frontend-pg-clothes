@@ -16,7 +16,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1450px;
     box-sizing: border-box;
 }
 
@@ -67,19 +67,26 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background-color: #34495e;
+    background-color: #e74c3c;
+    transform: scale(1.05);
 }
 
 button i {
-    margin-right: 8px;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
 }
 
 button:focus {
     outline: none;
 }
+
+button.editar {
+    margin-right: 10px;
+}
+
 
 /* Notification */
 #notificacion {
@@ -88,7 +95,7 @@ button:focus {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #2c3e50;
+    background: #e74c3c; /* Color rojo para errores */
     color: white;
     padding: 20px 30px;
     border-radius: 10px;
@@ -110,7 +117,7 @@ table th, table td {
     text-align: left;
     border: 1px solid #ddd;
     word-wrap: break-word;
-    max-width: 200px; /* Se asegura de que las celdas no sean demasiado estrechas */
+    max-width: 200px;
 }
 
 table th {
@@ -130,23 +137,10 @@ table tr:nth-child(even) {
 table tr:hover {
     background-color: #ecf0f1;
 }
+
 #clothing-table-container {
     max-width: 100%;
-    overflow-x: auto; /* Agrega desplazamiento horizontal si el contenido es más grande */
-}
-
-/* Hacer la tabla más responsiva */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-sizing: border-box;
-}
-
-/* Asegurarse de que las celdas tengan un ancho fijo o máximo */
-table th, table td {
-    min-width: 120px;
-    max-width: 200px; /* Limita el ancho máximo de las celdas */
-    word-wrap: break-word;
+    overflow-x: auto;
 }
 
 /* Ajustar la tabla para dispositivos móviles */

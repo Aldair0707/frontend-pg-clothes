@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
+<div id="notificacion" style="display:none;"></div>
 <body>
 
     <div class="container">
@@ -52,16 +52,16 @@
             </div>            
 
             <div class="actions">
-                <button type="button" onclick="postClothing()"><i class="fas fa-plus"></i> POST clothing</button>
-                <button type="button" onclick="getClothes()"><i class="fas fa-shirt"></i> GET clothes</button>
-                <button id="btn-update" style="display:none;" type="button" onclick="updateClothing()">UPDATE clothing</button>
+                <button type="button" onclick="postClothing()"><i class="fas fa-plus"></i> Crear prenda</button>
+                <button type="button" onclick="getClothes()"><i class="fas fa-shirt"></i> Obtener ropa</button>
+                <button id="btn-update" style="display:none;" type="button" onclick="updateClothing()">Actualizar prenda</button>
             </div>
 
             <p>Obtener prenda por ID</p>
             <div class="form-group">
                 <label for="id-clothing">ID de prenda</label>
                 <input type="text" id="id-clothing" placeholder="ID de la prenda">
-                <button type="button" onclick="getClothingById()">Get clothing</button>
+                <button type="button" onclick="getClothingById()">Obtener prenda</button>
             </div>
         </form>
 
