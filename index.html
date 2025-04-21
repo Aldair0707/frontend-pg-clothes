@@ -7,63 +7,70 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<div id="notificacion" style="
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #2c3e50;
-    color: white;
-    padding: 20px 30px;
-    border-radius: 10px;
-    font-size: 18px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    z-index: 1000;
-    text-align: center;
-"></div>
+
 <body>
-    <p><i class="fas fa-shirt"></i> Consumo de REST-API de Ropa Nike</p>
 
-    <div>
-        <label>Nombre </label>
-        <input type="text" id="name">
-    </div>
-    <div>
-        <label>Tipo </label>
-        <input type="text" id="type" placeholder="Ej: sudadera, conjunto, jersey...">
-    </div>
-    <div>
-        <label>Color </label>
-        <input type="text" id="color">
-    </div>
-    <div>
-        <label>Talla </label>
-        <input type="text" id="size" placeholder="Ej: S, M, L, XL...">
-    </div>
-    <div>
-        <label>Descripción </label>
-        <input type="text" id="description">
-    </div>
-    <div>
-        <label>Precio </label>
-        <input type="number" id="price" step="0.01">
-    </div>
+    <div class="container">
+        <header>
+            <p><i class="fas fa-shirt"></i> Consumo de REST-API de Ropa Nike</p>
+        </header>
 
-    <br>
-    <p>Obtener prenda por ID</p>
-    <div>
-        <label>ID de prenda </label>
-        <input type="text" id="id-clothing">
-        <button onclick="getClothingById()">Get clothing</button>
+        <form id="clothing-form">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" placeholder="Nombre de la prenda" required>
+            </div>
+
+            <div class="form-group">
+                <label for="type">Tipo</label>
+                <input type="text" id="type" placeholder="Ej: sudadera, conjunto, jersey..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" id="color" required>
+            </div>
+
+            <div class="form-group">
+                <label for="size">Talla</label>
+                <input type="text" id="size" placeholder="Ej: S, M, L, XL..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" id="description" required>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Precio</label>
+                <input type="number" id="price" step="0.01" placeholder="Precio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Cantidad</label>
+                <input type="number" id="quantity" placeholder="Cantidad" required>
+            </div>            
+
+            <div class="actions">
+                <button type="button" onclick="postClothing()"><i class="fas fa-plus"></i> POST clothing</button>
+                <button type="button" onclick="getClothes()"><i class="fas fa-shirt"></i> GET clothes</button>
+                <button id="btn-update" style="display:none;" type="button" onclick="updateClothing()">UPDATE clothing</button>
+            </div>
+
+            <p>Obtener prenda por ID</p>
+            <div class="form-group">
+                <label for="id-clothing">ID de prenda</label>
+                <input type="text" id="id-clothing" placeholder="ID de la prenda">
+                <button type="button" onclick="getClothingById()">Get clothing</button>
+            </div>
+        </form>
+
+        <div id="resultado">
+            <div id="clothing-table-container">
+                <!-- Aquí se insertará la tabla generada dinámicamente -->
+            </div>
+        </div>
     </div>
-    <br>
-
-    <button onclick="postClothing()"><i class="fas fa-plus"></i> POST clothing</button>
-    <button onclick="getClothes()"><i class="fas fa-shirt"></i> GET clothes</button>
-    <button id="btn-update" style="display:none;" onclick="updateClothing()">UPDATE clothing</button>
-
-    <div id="resultado"></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="callrestapi.js"></script>

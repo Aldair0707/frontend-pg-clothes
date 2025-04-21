@@ -8,7 +8,8 @@ function postClothing() {
         color: $('#color').val(),
         size: $('#size').val(),
         description: $('#description').val(),
-        price: $('#price').val()
+        price: $('#price').val(),
+        quantity: $('#quantity').val()
     };
 
     $.ajax({
@@ -41,6 +42,7 @@ function editarClothing(id) {
             $('#size').val(clothing.size);
             $('#description').val(clothing.description);
             $('#price').val(clothing.price);
+            $('#quantity').val(clothing.quantity);
 
             $('#btn-update').show().data('id', id);
             $('#resultado').html("");
@@ -59,7 +61,8 @@ function updateClothing() {
         color: $('#color').val(),
         size: $('#size').val(),
         description: $('#description').val(),
-        price: $('#price').val()
+        price: $('#price').val(),
+        quantity: $('#quantity').val()
     };
 
     $.ajax({
@@ -89,9 +92,9 @@ function getClothingById() {
 
         if (clothing) {
             var html = '<table border="1">' +
-                '<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Color</th><th>Talla</th><th>Descripción</th><th>Precio</th><th>Acciones</th></tr>' +
+                '<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Color</th><th>Talla</th><th>Descripción</th><th>Precio</th><th>Cantidad</th><th>Acciones</th></tr>' +
                 '<tr>' +
-                `<td>${clothing.id}</td><td>${clothing.name}</td><td>${clothing.type}</td><td>${clothing.color}</td><td>${clothing.size}</td><td>${clothing.description}</td><td>${clothing.price}</td>` +
+                `<td>${clothing.id}</td><td>${clothing.name}</td><td>${clothing.type}</td><td>${clothing.color}</td><td>${clothing.size}</td><td>${clothing.description}</td><td>${clothing.price}</td><td>${clothing.quantity}</td>` + 
                 `<td><button onclick="editarClothing(${clothing.id})">Editar</button> <button onclick="deleteClothing(${clothing.id})">Eliminar</button></td>` +
                 '</tr>' +
                 '</table>';
@@ -106,18 +109,18 @@ function getClothingById() {
             console.error(jqXHR);
         }
     });
-    
 }
+
 
 function getClothes() {
     $.getJSON(url, function (json) {
         var arr = json.clothes;
         var html = '<table border="1">' +
-            '<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Color</th><th>Talla</th><th>Descripción</th><th>Precio</th><th>Acciones</th></tr>';
+            '<tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Color</th><th>Talla</th><th>Descripción</th><th>Precio</th><th>Cantidad</th><th>Acciones</th></tr>';
 
         arr.forEach(function (item) {
             html += `<tr>
-                <td>${item.id}</td><td>${item.name}</td><td>${item.type}</td><td>${item.color}</td><td>${item.size}</td><td>${item.description}</td><td>${item.price}</td>
+                <td>${item.id}</td><td>${item.name}</td><td>${item.type}</td><td>${item.color}</td><td>${item.size}</td><td>${item.description}</td><td>${item.price}</td><td>${item.quantity}</td>
                 <td><button onclick="editarClothing(${item.id})">Editar</button> <button onclick="deleteClothing(${item.id})">Eliminar</button></td>
             </tr>`;
         });
@@ -126,6 +129,7 @@ function getClothes() {
         $('#resultado').html(html);
     });
 }
+
 
 function deleteClothing(id) {
     if (!confirm("¿Estás seguro de eliminar la prenda con ID " + id + "?")) return;
