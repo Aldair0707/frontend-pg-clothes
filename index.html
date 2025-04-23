@@ -9,10 +9,9 @@
 </head>
 <div id="notificacion" style="display:none;"></div>
 <body>
-
     <div class="container">
         <header>
-            <p><i class="fas fa-shirt"></i> Consumo de REST-API de Ropa Nike</p>
+            <h1><i class="fas fa-shirt"></i> Consumo de REST-API de Ropa Nike</h1>
         </header>
 
         <form id="clothing-form">
@@ -51,17 +50,19 @@
                 <input type="number" id="quantity" placeholder="Cantidad" required>
             </div>            
 
-            <div class="actions">
-                <button type="button" onclick="postClothing()"><i class="fas fa-plus"></i> Crear prenda</button>
-                <button type="button" onclick="getClothes()"><i class="fas fa-shirt"></i> Obtener ropa</button>
+            <div class="actions user-buttons">
+                <button id="btn-create-clothing" type="button" onclick="postClothing()"><i class="fas fa-plus"></i> Crear prenda</button>
+                <button id="btn-get-clothes" type="button" onclick="getClothes()"><i class="fas fa-shirt"></i> Obtener ropa</button>
                 <button id="btn-update" style="display:none;" type="button" onclick="updateClothing()">Actualizar prenda</button>
             </div>
 
             <p>Obtener prenda por ID</p>
             <div class="form-group">
                 <label for="id-clothing">ID de prenda</label>
-                <input type="text" id="id-clothing" placeholder="ID de la prenda">
-                <button type="button" onclick="getClothingById()">Obtener prenda</button>
+                <div class="id-user-container">
+                    <input type="text" id="id-clothing" placeholder="ID de la prenda">
+                    <button id="btn-get-clothing" type="button" onclick="getClothingById()">Obtener prenda</button>
+                </div>
             </div>
         </form>
 
